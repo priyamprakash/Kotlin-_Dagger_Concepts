@@ -5,12 +5,13 @@ import com.priyam.daggerconcepts.modules.NotificationServiceModule
 import com.priyam.daggerconcepts.UserRepositoryModule
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
 /**MainActivity will get the object of UserRegistrationService through this component
 
 getUserRegistrationService() is here to create object for UserRegistrationService class
  */
-
+@Singleton
 @Component(modules = [UserRepositoryModule::class, NotificationServiceModule::class])
 interface UserRegistrationComponent {
 

@@ -7,6 +7,7 @@ import com.priyam.daggerconcepts.NotificationService
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
+import javax.inject.Singleton
 
 /**
  * Qualifiers - @Named
@@ -37,6 +38,7 @@ is created and MainActivity will share the value through it.
 @Module
 class NotificationServiceModule() {
 
+    @Singleton
     @MessageQualifier
     @Provides
     fun getMessageService(retryCount: Int): NotificationService {

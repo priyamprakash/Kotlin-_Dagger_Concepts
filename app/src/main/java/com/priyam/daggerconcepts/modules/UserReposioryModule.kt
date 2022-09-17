@@ -3,6 +3,7 @@ package com.priyam.daggerconcepts
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 /**
  * Here only one database is being used at a time
@@ -17,7 +18,9 @@ abstract class UserRepositoryModule {
 //        return FirebaseRepository()
 //    }
 
+
     @Binds
+    @Singleton
     abstract fun getSQLRepository(sqlRepository: SQLRepository): UserRepository
 }
 
