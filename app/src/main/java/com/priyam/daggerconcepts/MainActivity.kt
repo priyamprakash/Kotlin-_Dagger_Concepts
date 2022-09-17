@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var userRegistrationService: UserRegistrationService
 
     @Inject
-    lateinit var welcomeEmail: WelcomeEmail
+    lateinit var emailService: EmailService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         val component = DaggerUserRegistrationComponent.builder().build()
         component.inject(this)
 
+//      this registerUser function of userRegistrationService calls : 1. User Repository and 2. Notification Service
         userRegistrationService.registerUser("Falooda@gmail.com", "123456")
 
     }

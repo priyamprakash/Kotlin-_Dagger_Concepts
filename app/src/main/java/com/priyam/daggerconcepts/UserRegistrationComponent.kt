@@ -7,7 +7,7 @@ import dagger.Component
 getUserRegistrationService() is here to create object for UserRegistrationService class
  */
 
-@Component
+@Component(modules = [UserRepositoryModule::class, NotificationServiceModule::class])
 interface UserRegistrationComponent {
 
 
