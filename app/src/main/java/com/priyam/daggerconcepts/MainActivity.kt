@@ -17,7 +17,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val component = DaggerUserRegistrationComponent.builder().build()
+        val component = DaggerUserRegistrationComponent.builder()
+            .notificationServiceModule(NotificationServiceModule(3))
+            .build()
         component.inject(this)
 
 //      this registerUser function of userRegistrationService calls : 1. User Repository and 2. Notification Service
@@ -34,6 +36,7 @@ val welcomeEmail = WelcomeEmail()
 val userRegistrationService = UserRegistrationService(userRepository, welcomeEmail)
 
 VERSION 2
+
 With the help of Dagger,these lines are replaced by :
 
 val component = DaggerUserRegistrationComponent.builder().build()
@@ -41,6 +44,7 @@ val userRegistrationService = component.getUserRegistrationService()
 val welcomeEmail = component.getWelcomeEmail()
 
 VERSION 3
+
 Now, the objects of userRegistrationService & welcomeEmail need not be created manually
 (Reason : Because we have defined inject function in the VERSION 2 UserRegistrationComponent )
 So, the last 2 lines of above version can be replaced by :
@@ -50,5 +54,17 @@ lateinit var userRegistrationService: UserRegistrationService
 
 val component = DaggerUserRegistrationComponent.builder().build()
 component.inject(this)
+
+VERSION 4
+
+Till now Dagger was itself creating object of modules
+But now we wish to pass retryCount to the NotificationServiceModule from the User side
+So we are adding one more line while creating component.
+
+val component = DaggerUserRegistrationComponent.builder()
+.notificationServiceModule(NotificationServiceModule(3))
+.build()
+
+ Here, retryCount is a dynamic value being passed by the user.
 
  */

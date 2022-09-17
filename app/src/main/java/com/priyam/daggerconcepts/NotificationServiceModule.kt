@@ -15,12 +15,12 @@ module, we need to classify which specific class needs to be called using @Named
 
  */
 @Module
-class NotificationServiceModule {
+class NotificationServiceModule(private val retryCount: Int) {
 
     @MessageQualifier
     @Provides
     fun getMessageService(): NotificationService{
-        return MessageService()
+        return MessageService(retryCount)
     }
 
     @Named("email")
