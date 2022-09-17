@@ -21,8 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val component = DaggerUserRegistrationComponent.factory().create(3)
-        emailService = component.getEmailService()
+        val component = (application as UserApplication).userRegistrationComponent
         component.inject(this)
 
 //      this registerUser function of userRegistrationService calls : 1. User Repository and 2. Notification Service
