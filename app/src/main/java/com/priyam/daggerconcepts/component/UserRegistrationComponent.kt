@@ -1,6 +1,8 @@
-package com.priyam.daggerconcepts
+package com.priyam.daggerconcepts.component
 
-import dagger.Binds
+import com.priyam.daggerconcepts.MainActivity
+import com.priyam.daggerconcepts.modules.NotificationServiceModule
+import com.priyam.daggerconcepts.UserRepositoryModule
 import dagger.BindsInstance
 import dagger.Component
 
@@ -18,7 +20,7 @@ interface UserRegistrationComponent {
 
     @Component.Factory
     interface Factory{
-        fun create(@BindsInstance retryCount: Int):  UserRegistrationComponent
+        fun create(@BindsInstance retryCount: Int): UserRegistrationComponent
 
     }
 

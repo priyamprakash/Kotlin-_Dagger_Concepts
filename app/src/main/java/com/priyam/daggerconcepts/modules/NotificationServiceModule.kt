@@ -1,5 +1,9 @@
-package com.priyam.daggerconcepts
+package com.priyam.daggerconcepts.modules
 
+import com.priyam.daggerconcepts.EmailService
+import com.priyam.daggerconcepts.MessageQualifier
+import com.priyam.daggerconcepts.MessageService
+import com.priyam.daggerconcepts.NotificationService
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
@@ -35,13 +39,13 @@ class NotificationServiceModule() {
 
     @MessageQualifier
     @Provides
-    fun getMessageService(retryCount: Int): NotificationService{
+    fun getMessageService(retryCount: Int): NotificationService {
         return MessageService(retryCount)
     }
 
     @Named("email")
     @Provides
-    fun getEmailService(emailService: EmailService): NotificationService{
+    fun getEmailService(emailService: EmailService): NotificationService {
         return EmailService()
     }
 

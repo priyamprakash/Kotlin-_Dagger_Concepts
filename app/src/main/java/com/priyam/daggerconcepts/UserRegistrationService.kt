@@ -1,7 +1,9 @@
 package com.priyam.daggerconcepts
 
+import com.priyam.daggerconcepts.MessageQualifier
+import com.priyam.daggerconcepts.NotificationService
+import com.priyam.daggerconcepts.UserRepository
 import javax.inject.Inject
-import javax.inject.Named
 
 class UserRegistrationService @Inject constructor(
     private val userRepository: UserRepository,
