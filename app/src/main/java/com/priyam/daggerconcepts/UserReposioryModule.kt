@@ -4,6 +4,11 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 
+/**
+ * Here only one database is being used at a time
+ * If both databases are to be used simultaneously use Provides with Named qalifier.
+ * Eg: NotificationServiceModule
+ */
 @Module
 abstract class UserRepositoryModule {
 
