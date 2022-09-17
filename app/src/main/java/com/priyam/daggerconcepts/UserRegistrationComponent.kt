@@ -10,9 +10,23 @@ getUserRegistrationService() is here to create object for UserRegistrationServic
 @Component
 interface UserRegistrationComponent {
 
-    fun getUserRegistrationService(): UserRegistrationService
 
-    fun getWelcomeEmail() : WelcomeEmail
+
+    fun inject(mainActivity: MainActivity)
+
 }
 
 
+/***
+VERSION 1
+Initially, objects for UserRegistrationService and WelcomeEmail were created manually by these lines:
+
+fun getUserRegistrationService(): UserRegistrationService
+
+fun getWelcomeEmail() : WelcomeEmail
+
+VERSION 2
+But now, inject function replaces it. It gets the activity which needs the injection.
+
+fun inject(mainActivity: MainActivity)
+ */
