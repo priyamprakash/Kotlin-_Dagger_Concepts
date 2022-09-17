@@ -9,7 +9,7 @@ interface  NotificationService{
     fun send(to: String , from:String, body: String?)
 }
 
-@Singleton
+@ApplicationScope
 class EmailService @Inject constructor() : NotificationService {
     override fun send(to: String, from: String, body: String?) {
         Log.d("TAG1", "send: Email Sent")
