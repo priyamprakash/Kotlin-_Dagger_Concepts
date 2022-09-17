@@ -1,6 +1,8 @@
 package com.priyam.daggerconcepts
 
-class UserRegistrationService(
+import javax.inject.Inject
+
+class UserRegistrationService @Inject constructor(
     private val userRepository: UserRepository,
     private val welcomeEmail: WelcomeEmail
 ) {
