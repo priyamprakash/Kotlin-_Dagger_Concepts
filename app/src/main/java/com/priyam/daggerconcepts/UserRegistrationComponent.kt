@@ -11,6 +11,8 @@ getUserRegistrationService() is here to create object for UserRegistrationServic
 interface UserRegistrationComponent {
 
     fun getUserRegistrationService(): UserRegistrationService
+
+    fun getWelcomeEmail() : WelcomeEmail
 }
 
 

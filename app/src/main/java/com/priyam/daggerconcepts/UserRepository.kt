@@ -7,6 +7,6 @@ import javax.inject.Inject
 
 class UserRepository @Inject constructor(){
     fun saveUser(email: String, password: String){
-        Log.d(TAG, "saveUser: User Saved in DB")
+        Log.d("TAG1", "saveUser: User Saved in DB")
     }
 }
