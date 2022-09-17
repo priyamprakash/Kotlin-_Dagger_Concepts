@@ -11,10 +11,10 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var userRegistrationService: UserRegistrationService
 
-    @Inject
+//    @Inject
     lateinit var emailService: EmailService
 
-    @Inject
+//    @Inject
     lateinit var emailService1: EmailService
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +22,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val component = DaggerUserRegistrationComponent.factory().create(3)
+        emailService = component.getEmailService()
+        val component2 = DaggerUserRegistrationComponent.factory().create(3)
+        emailService1 = component2.getEmailService()
+        emailService = component2.getEmailService()
+
+
 
         component.inject(this)
 

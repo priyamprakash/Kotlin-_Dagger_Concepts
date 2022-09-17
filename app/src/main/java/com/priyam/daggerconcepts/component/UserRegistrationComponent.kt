@@ -1,5 +1,6 @@
 package com.priyam.daggerconcepts.component
 
+import com.priyam.daggerconcepts.EmailService
 import com.priyam.daggerconcepts.MainActivity
 import com.priyam.daggerconcepts.modules.NotificationServiceModule
 import com.priyam.daggerconcepts.UserRepositoryModule
@@ -11,6 +12,7 @@ import javax.inject.Singleton
 
 getUserRegistrationService() is here to create object for UserRegistrationService class
  */
+
 @Singleton
 @Component(modules = [UserRepositoryModule::class, NotificationServiceModule::class])
 interface UserRegistrationComponent {
@@ -18,6 +20,8 @@ interface UserRegistrationComponent {
 
 
     fun inject(mainActivity: MainActivity)
+
+    fun getEmailService():EmailService
 
     @Component.Factory
     interface Factory{
