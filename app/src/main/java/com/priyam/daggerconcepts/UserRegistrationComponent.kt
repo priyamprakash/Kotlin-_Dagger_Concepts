@@ -1,5 +1,7 @@
 package com.priyam.daggerconcepts
 
+import dagger.Binds
+import dagger.BindsInstance
 import dagger.Component
 
 /**MainActivity will get the object of UserRegistrationService through this component
@@ -13,6 +15,12 @@ interface UserRegistrationComponent {
 
 
     fun inject(mainActivity: MainActivity)
+
+    @Component.Factory
+    interface Factory{
+        fun create(@BindsInstance retryCount: Int):  UserRegistrationComponent
+
+    }
 
 }
 

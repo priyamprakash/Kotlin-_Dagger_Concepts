@@ -14,12 +14,28 @@ module, we need to classify which specific class needs to be called using @Named
 
 
  */
+
+/**  RETRY COUNT
+
+For version 4 of Main Activity,
+
+>> class NotificationServiceModule(private val retryCount: Int)
+
+For version 5 of Main Activity,
+
+>> class NotificationServiceModule
+
+>> getMessageService(retryCount: Int)
+
+Reason: getMessageService will get the value directly from the component becasue component Factory
+is created and MainActivity will share the value through it.
+ */
 @Module
-class NotificationServiceModule(private val retryCount: Int) {
+class NotificationServiceModule() {
 
     @MessageQualifier
     @Provides
-    fun getMessageService(): NotificationService{
+    fun getMessageService(retryCount: Int): NotificationService{
         return MessageService(retryCount)
     }
 
@@ -34,5 +50,4 @@ class NotificationServiceModule(private val retryCount: Int) {
 
 /**
 Similar to UserRepositoryModule
-Here it means to use MessageService class for the NotificationService interface
  */

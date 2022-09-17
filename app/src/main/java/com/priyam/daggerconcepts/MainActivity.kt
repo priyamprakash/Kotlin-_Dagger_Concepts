@@ -17,9 +17,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val component = DaggerUserRegistrationComponent.builder()
-            .notificationServiceModule(NotificationServiceModule(3))
-            .build()
+        val component = DaggerUserRegistrationComponent.factory().create(3)
+
         component.inject(this)
 
 //      this registerUser function of userRegistrationService calls : 1. User Repository and 2. Notification Service
@@ -65,6 +64,18 @@ val component = DaggerUserRegistrationComponent.builder()
 .notificationServiceModule(NotificationServiceModule(3))
 .build()
 
- Here, retryCount is a dynamic value being passed by the user.
+Here, retryCount is a dynamic value being passed by the user.
+Dynamic value is passed from the MainActivity to the NotificationServiceModule.
+It will be used in the MessageService class of NotificationService.
+
+VERSION 5
+ Further, if we forget to add:
+.notificationServiceModule(NotificationServiceModule(3))
+ Android Studio shows no error during compilation, but throws error during runtime.
+
+To avoid this we use Component Factory which makes sure (during compilation itself) that you pass the dynamic value.
+Also code to create component in MainActivity changes to :
+
+>> val component = DaggerUserRegistrationComponent.factory().create(3)
 
  */
