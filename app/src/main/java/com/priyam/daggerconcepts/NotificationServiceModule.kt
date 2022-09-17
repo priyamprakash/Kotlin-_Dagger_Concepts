@@ -17,7 +17,7 @@ module, we need to classify which specific class needs to be called using @Named
 @Module
 class NotificationServiceModule {
 
-    @Named("message")
+    @MessageQualifier
     @Provides
     fun getMessageService(): NotificationService{
         return MessageService()
