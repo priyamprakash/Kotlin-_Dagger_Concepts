@@ -2,6 +2,7 @@ package com.priyam.daggerconcepts
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.priyam.daggerconcepts.component.DaggerUserRegistrationComponent
 import javax.inject.Inject
 
 //Initial Setup Done
