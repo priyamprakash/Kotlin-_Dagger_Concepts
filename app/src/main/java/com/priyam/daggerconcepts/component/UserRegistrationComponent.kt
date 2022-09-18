@@ -1,30 +1,26 @@
 package com.priyam.daggerconcepts.component
 
-import com.priyam.daggerconcepts.ApplicationScope
-import com.priyam.daggerconcepts.EmailService
-import com.priyam.daggerconcepts.MainActivity
+import com.priyam.daggerconcepts.*
 import com.priyam.daggerconcepts.modules.NotificationServiceModule
-import com.priyam.daggerconcepts.UserRepositoryModule
 import com.priyam.daggerconcepts.modules.AnalyticsModule
 import dagger.BindsInstance
 import dagger.Component
+import dagger.Subcomponent
 
 /**MainActivity will get the object of UserRegistrationService through this component
 
 getUserRegistrationService() is here to create object for UserRegistrationService class
  */
 
-@ApplicationScope
-@Component(modules = [UserRepositoryModule::class, NotificationServiceModule::class , AnalyticsModule::class])
+@ActivityScope
+@Subcomponent(modules = [UserRepositoryModule::class, NotificationServiceModule::class])
 interface UserRegistrationComponent {
 
 
 
     fun inject(mainActivity: MainActivity)
 
-    fun getEmailService():EmailService
-
-    @Component.Factory
+    @Subcomponent.Factory
     interface Factory{
         fun create(@BindsInstance retryCount: Int): UserRegistrationComponent
 

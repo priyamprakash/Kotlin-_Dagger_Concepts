@@ -2,7 +2,6 @@ package com.priyam.daggerconcepts
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.priyam.daggerconcepts.component.DaggerUserRegistrationComponent
 import javax.inject.Inject
 
 //Initial Setup Done
@@ -21,8 +20,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val component = (application as UserApplication).userRegistrationComponent
-        component.inject(this)
+        val appComponent = (application as UserApplication).appComponent
+        val userRegistrationComponent = appComponent.getUserRegistrationComponentFactory().create(3)
+        userRegistrationComponent.inject(this)
 
 //      this registerUser function of userRegistrationService calls : 1. User Repository and 2. Notification Service
         userRegistrationService.registerUser("Falooda@gmail.com", "123456")

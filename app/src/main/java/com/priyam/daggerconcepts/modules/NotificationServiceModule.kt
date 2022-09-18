@@ -1,9 +1,6 @@
 package com.priyam.daggerconcepts.modules
 
-import com.priyam.daggerconcepts.EmailService
-import com.priyam.daggerconcepts.MessageQualifier
-import com.priyam.daggerconcepts.MessageService
-import com.priyam.daggerconcepts.NotificationService
+import com.priyam.daggerconcepts.*
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
@@ -38,7 +35,7 @@ is created and MainActivity will share the value through it.
 @Module
 class NotificationServiceModule() {
 
-    @Singleton
+    @ActivityScope
     @MessageQualifier
     @Provides
     fun getMessageService(retryCount: Int): NotificationService {
