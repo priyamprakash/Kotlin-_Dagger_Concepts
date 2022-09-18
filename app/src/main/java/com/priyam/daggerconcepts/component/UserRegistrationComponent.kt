@@ -5,7 +5,6 @@ import com.priyam.daggerconcepts.EmailService
 import com.priyam.daggerconcepts.MainActivity
 import com.priyam.daggerconcepts.modules.NotificationServiceModule
 import com.priyam.daggerconcepts.UserRepositoryModule
-import com.priyam.daggerconcepts.modules.AnalyticsModule
 import dagger.BindsInstance
 import dagger.Component
 
@@ -15,7 +14,7 @@ getUserRegistrationService() is here to create object for UserRegistrationServic
  */
 
 @ApplicationScope
-@Component(modules = [UserRepositoryModule::class, NotificationServiceModule::class , AnalyticsModule::class])
+@Component(modules = [UserRepositoryModule::class, NotificationServiceModule::class])
 interface UserRegistrationComponent {
 
 
