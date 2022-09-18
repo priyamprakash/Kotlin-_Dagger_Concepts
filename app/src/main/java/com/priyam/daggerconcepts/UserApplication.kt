@@ -9,7 +9,7 @@ class UserApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
-//        userRegistrationComponent = DaggerUserRegistrationComponent.factory().create(3)
+//        userRegistrationComponent = .factory().create(3)
     }
 
 }
