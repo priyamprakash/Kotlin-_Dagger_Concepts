@@ -42,3 +42,10 @@ But now, inject function replaces it. It gets the activity which needs the injec
 
 fun inject(mainActivity: MainActivity)
  */
+
+//@Component.Builder
+//    interface Builder{
+//        fun build() : UserRegistrationComponent
+//        fun retryCount(@BindsInstance retryCount: Int) : Builder
+//        fun subComponent(appComponent: AppComponent) : Builder
+//    }

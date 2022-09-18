@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import javax.inject.Inject
 
+/**
+ * Factory and Builder
+ */
 //Initial Setup Done
 class MainActivity : AppCompatActivity() {
 
@@ -24,8 +27,13 @@ class MainActivity : AppCompatActivity() {
         val userRegistrationComponent = appComponent.getUserRegistrationComponentFactory().create(3)
         userRegistrationComponent.inject(this)
 
-//      this registerUser function of userRegistrationService calls : 1. User Repository and 2. Notification Service
-        userRegistrationService.registerUser("Falooda@gmail.com", "123456")
+//     val userRegistrationComponent = DaggerUserRegistrationComponent
+//     .builder()
+//     .appComponent(appComponent)
+//     .retryCount(3)
+//     .build()
+
+             userRegistrationService.registerUser("Falooda@gmail.com", "123456")
 
     }
 }
