@@ -7,7 +7,6 @@ import javax.inject.Inject
 /**
  * Factory and Builder
  */
-//Initial Setup Done
 class MainActivity : AppCompatActivity() {
 
     @Inject
