@@ -2,6 +2,7 @@ package com.priyam.daggerconcepts
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import javax.inject.Inject
 
 /**
@@ -22,17 +23,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         val appComponent = (application as UserApplication).appComponent
         val userRegistrationComponent = appComponent.getUserRegistrationComponentFactory().create(3)
         userRegistrationComponent.inject(this)
 
-//     val userRegistrationComponent = DaggerUserRegistrationComponent
-//     .builder()
-//     .appComponent(appComponent)
-//     .retryCount(3)
-//     .build()
 
-             userRegistrationService.registerUser("Falooda@gmail.com", "123456")
+        userRegistrationService.registerUser("Falooda@gmail.com", "123456")
 
     }
 }
